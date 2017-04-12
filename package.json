@@ -1,18 +1,30 @@
 {
   "name": "social-media-profile",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
-  "dependencies": {
-    "react": "^15.5.3",
-    "react-dom": "^15.5.3"
-  },
   "devDependencies": {
-    "react-scripts": "0.9.5"
+    "dotenv": "^4.0.0",
+    "react-scripts": "0.8.5"
+  },
+  "dependencies": {
+    "map.prototype.tojson": "^0.1.3",
+    "re-bulma": "^0.4.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.2",
+    "react-router-dom": "^4.0.0-beta.3",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.7.4",
+    "redux-thunk": "^2.2.0",
+    "reselect": "^2.5.4",
+    "set.prototype.tojson": "^0.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "node -r ./scripts/env-dev ./node_modules/.bin/react-scripts start",
+    "build": "node -r ./scripts/env-prod ./node_modules/.bin/react-scripts build",
+    "test": "node -r ./scripts/env-dev ./node_modules/.bin/react-scripts test --env=jsdom"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   }
 }

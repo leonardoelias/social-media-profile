@@ -1,0 +1,5 @@
+export const FETCH_FRIEND = 'FETCH_FRIEND';
+export const FETCHFEED = 'FETCHFEED';
+export const LOAD_MORE_FRIENDS = 'LOAD_MORE_FRIENDS';
+export const TWEET_CHANGED = 'TWEET_CHANGED';
+export const TWEET_CLEAR = 'TWEET_CLEAR';
