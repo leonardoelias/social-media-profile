@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 
 import { add, clear, changeDescription } from '../actions';
-import { Button } from 're-bulma'
+import { Button, Textarea } from 're-bulma'
 
 class Tweet extends Component {
 
@@ -32,7 +32,7 @@ class Tweet extends Component {
   render(){
     return (
       <div className="Tweet">
-        <textarea id='description'
+        <Textarea id='description'
           value={this.props.description}
           onChange={this.props.changeDescription}
           onKeyUp={this.keyHandler}
@@ -47,7 +47,6 @@ class Tweet extends Component {
 const mapStateToProps = (state) => ({description: state.tweet.description})
 
 
-const mapDispatchToProps = dispatch =>
-    bindActionCreators({ add, changeDescription, clear }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ add, changeDescription, clear }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tweet);

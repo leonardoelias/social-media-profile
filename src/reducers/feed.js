@@ -1,6 +1,6 @@
 const feedDefaults = {
   posts: [],
-  isLoading: false
+  friends: []
 }
 
 export default (state = feedDefaults, action)=> {
@@ -11,8 +11,14 @@ export default (state = feedDefaults, action)=> {
           ...state,
           posts: [
             ...action.payload.data.reverse()
+          ]
+        };
+    case 'SET_FRIENDS':
+        return {
+          ...state,
+          friends: [
+            ...action.payload.data            
           ],
-          isLoading: false
         };
     default:
         return state

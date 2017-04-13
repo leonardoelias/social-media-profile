@@ -1,21 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux'
+import { findOwner } from '../actions';
 import ListItem from './ListItem'
 
-const FeedList = ({ feed: { posts, isLoading } }) => {
+const FeedList = ({ feed: { posts, friends } }) => {
 
   const feedElements = posts.map(function(item, index) {
-
-    const userToProfile = 'https://pbs.twimg.com/profile_images/420826194083213312/CP1RmLa3_200x200.jpeg';
-    const anonymous     = 'https://pbs.twimg.com/profile_images/805766017993605120/nnsBQaVv_200x200.jpg';
-
     if (item.user !== '') {
+      let getUser = findOwner(item.user, friends)
       return (
-        <ListItem picture={ userToProfile } user={ item.id } text={ item.text } key={"profile-" +  index } />
+        <ListItem picture={ getUser.avatar } user={ getUser.name } text={ item.text } key={"profile-" +  index } />
       );
     }else{
+      const anonymous = 'https://pbs.twimg.com/profile_images/805766017993605120/nnsBQaVv_200x200.jpg';
       return (
-        <ListItem picture={ anonymous } user="Anonymou" text={ item.text } key={ index } />
+        <ListItem picture={ anonymous } user="Anonymous" text={ item.text } key={"profile-" +  index } />
       );
     }
   });
@@ -35,8 +35,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {}
-}
+const mapDispatchToProps = dispatch => bindActionCreators({ findOwner }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(FeedList);

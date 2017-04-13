@@ -1,15 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchFriends } from '../actions';
 import { Subtitle } from 're-bulma'
 import ListItem from './ListItem'
 
-const FriendList = ({ friends: { profile, isLoading } }) => {
+const FriendList = ({ friends: { profile } }) => {
 
   const friendsElements = profile.map(function(item, index) {
-    return (
-      <ListItem picture={ item.avatar } user={ item.name } key={ "friends-" + index } />
-    );
+    const anonymous = 'https://pbs.twimg.com/profile_images/805766017993605120/nnsBQaVv_200x200.jpg';
+
+    if (item.name !== '') {
+      return (
+        <ListItem picture={ item.avatar } user={ item.name } key={ "friends-" + index } />
+      );
+    }else{
+      return (
+        <ListItem picture={ anonymous } user='anonymous' key={ "friends-" + index } />
+      );
+    }
   });
 
   return (
@@ -30,9 +37,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadFriends: () => {
-      dispatch(fetchFriends());
-    }
   }
 }
 
