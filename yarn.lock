@@ -1089,8 +1089,6 @@ chokidar@^1.0.0:
     is-glob "^2.0.0"
     path-is-absolute "^1.0.0"
     readdirp "^2.0.0"
-  optionalDependencies:
-    fsevents "^1.0.0"
 
 ci-info@^1.0.0:
   version "1.0.0"
@@ -2196,12 +2194,6 @@ fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
 
-fsevents@1.0.17, fsevents@^1.0.0:
-  version "1.0.17"
-  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-1.0.17.tgz#8537f3f12272678765b4fd6528c0f1f66f8f4558"
-  dependencies:
-    nan "^2.3.0"
-    node-pre-gyp "^0.6.29"
 
 fstream-ignore@^1.0.5:
   version "1.0.5"
@@ -4299,8 +4291,6 @@ react-scripts@^0.9.5:
     webpack-dev-server "1.16.2"
     webpack-manifest-plugin "1.1.0"
     whatwg-fetch "2.0.2"
-  optionalDependencies:
-    fsevents "1.0.17"
 
 react@^15.4.2:
   version "15.5.4"
